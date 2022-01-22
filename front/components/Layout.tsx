@@ -1,8 +1,6 @@
 import { Container, Box } from '@chakra-ui/react'
 import {Nav} from "../components/Nav"
 
-export const siteTitle = "みんなのオールタイムベスト";
-
 type typeLayout = {
   children: React.ReactNode;
 };
