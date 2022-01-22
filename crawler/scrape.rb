@@ -98,8 +98,7 @@ def arrange_data(hash)
   arr
 end
 
-#date = Date.today
-date = Date.new(2022,1,5)
+date = Date.today
 hash = scrape(date)
 arr = arrange_data(hash)
 arr = arr.sort_by{|x|x[:win_cnt]*-1}

@@ -1,6 +1,6 @@
 require "json"
 require "date"
-date = Date.new(2022,1,22)
+date = Date.today
 date = date.to_s
 result={}
 File.open("result/daily/#{date}.json") do |j|

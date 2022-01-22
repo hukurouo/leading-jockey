@@ -16,7 +16,7 @@ export function getSortedJsonData(){
 const jsonsTotalDirectory = path.join(process.cwd(), "utils", "total");
 
 export function getSortedTotalJsonData(){
-  const fileNames = fs.readdirSync(jsonsTotalDirectory).reverse().slice(0, 10);
+  const fileNames = fs.readdirSync(jsonsTotalDirectory).reverse().filter(name => name != "latest.json").slice(0, 10);
   const jsonMap: any = {}
   fileNames.forEach((fileName: string)=>{
     const jsonObject = JSON.parse(fs.readFileSync('./utils/total/'+fileName, 'utf8'));
