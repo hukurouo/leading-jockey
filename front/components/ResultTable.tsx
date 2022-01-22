@@ -5,9 +5,9 @@ export function ResultTable({ data }: { data: any }) {
   return (
     <Box>
       {Object.keys(data).map((key: any) => (
-        <Box py={4}>
+        <Box py={4} key={key}>
           {key.split(".")[0]}
-          <Table size="sm" mt={4}>
+          <Table size="sm" mt={4} key={key}>
             <Thead>
               <Tr>
                 <Th>名前</Th>
