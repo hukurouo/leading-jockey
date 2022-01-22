@@ -3,7 +3,7 @@ import { Table, Thead, Tbody, Tr, Th, Td, Box, Text, Link } from '@chakra-ui/rea
 
 export function ResultTable({ data }: { data: any }) {
   return (
-    <Box mt={8}>
+    <Box mt={4}>
       {Object.keys(data).map((key: any) => (
         <Box py={4} key={key}>
           {key.split(".")[0]}

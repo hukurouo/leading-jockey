@@ -1,4 +1,4 @@
-import { Table, Thead, Tbody, Tr, Th, Td, Box, Text, Link } from '@chakra-ui/react'
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import { Line } from 'react-chartjs-2';
 import React from 'react';
 import {
@@ -45,7 +45,8 @@ export function LinerGraph({ data }: { data: any }) {
     'rgba(54, 62, 235, 0.5)',
     'rgba(255, 99, 32, 0.5)',
   ]
-  function genGraphData(data: any): {
+
+  function genGraphData(data: any, start_idnex: number, end_index: number): {
     labels: string[];
     datasets: {
       label: string;
@@ -69,7 +70,7 @@ export function LinerGraph({ data }: { data: any }) {
       return 0;
     });
     const datasets: any = []
-    sortedlist.slice(0, 8).forEach((l: any[], index: number) => {
+    sortedlist.slice(start_idnex, end_index).forEach((l: any[], index: number) => {
       const jockey_id = l[0]
       const name = l[1]
       const win_cnts: any[] = []
@@ -99,7 +100,20 @@ export function LinerGraph({ data }: { data: any }) {
 
   return (
     <>
-      <Line options={options} data={genGraphData(data)} height={"220"} />
+      <Tabs isFitted variant='enclosed'>
+        <TabList mb='1em'>
+          <Tab>1-8位</Tab>
+          <Tab>9-16位</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            <Line options={options} data={genGraphData(data,0,8)} height={"220"} />
+          </TabPanel>
+          <TabPanel>
+            <Line options={options} data={genGraphData(data,9,17)} height={"220"} />
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
     </>
   )
 }
