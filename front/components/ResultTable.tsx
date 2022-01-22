@@ -18,13 +18,13 @@ export function ResultTable({ data }: { data: any }) {
             </Thead>
             {data[key].filter((d: { win_cnt: number }) => d.win_cnt > 0).map((j: any, index: number) => (
               <Tr key={index}>
-                <Td minW={20}>
+                <Td minW={24}>
                   <Link color='blue.500' href={j.url} target="_blank" rel="noopener">
                   {j.name}
                   </Link>
                   
                 </Td>
-                <Td minW={20}>{j.win_cnt}</Td>
+                <Td minW={16}>{j.win_cnt}</Td>
                 <Td minW={20}>{j.rank_arr}</Td>
                 <Td minW={20}>{j.odds_rank_arr}</Td>
               </Tr>
