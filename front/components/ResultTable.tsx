@@ -11,7 +11,7 @@ export function ResultTable({ data }: { data: any }) {
             <Thead>
               <Tr>
                 <Th>名前</Th>
-                <Th>勝ち鞍</Th>
+                <Th>勝数</Th>
                 <Th>着順</Th>
                 <Th>人気</Th>
               </Tr>
@@ -24,7 +24,7 @@ export function ResultTable({ data }: { data: any }) {
                   </Link>
                   
                 </Td>
-                <Td minW={16}>{j.win_cnt}</Td>
+                <Td minW={12}>{j.win_cnt}</Td>
                 <Td minW={20}>{j.rank_arr}</Td>
                 <Td minW={20}>{j.odds_rank_arr}</Td>
               </Tr>
