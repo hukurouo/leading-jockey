@@ -1,4 +1,4 @@
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
+import { Text } from '@chakra-ui/react'
 import { Line } from 'react-chartjs-2';
 import React from 'react';
 import {
@@ -100,20 +100,10 @@ export function LinerGraph({ data }: { data: any }) {
 
   return (
     <>
-      <Tabs isFitted variant='enclosed'>
-        <TabList mb='1em'>
-          <Tab>1-8位</Tab>
-          <Tab>9-16位</Tab>
-        </TabList>
-        <TabPanels>
-          <TabPanel>
-            <Line options={options} data={genGraphData(data,0,8)} height={"220"} />
-          </TabPanel>
-          <TabPanel>
-            <Line options={options} data={genGraphData(data,9,17)} height={"220"} />
-          </TabPanel>
-        </TabPanels>
-      </Tabs>
+      <Text pb="4">騎手リーディング 1~8位</Text>
+      <Line options={options} data={genGraphData(data,0,8)} height={"220"} />
+      <Text pt="8" pb="4">騎手リーディング 9~16位</Text>
+      <Line options={options} data={genGraphData(data,9,17)} height={"220"} />
     </>
   )
 }
