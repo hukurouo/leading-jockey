@@ -29,11 +29,7 @@ export function LinerGraph({ data }: { data: any }) {
         labels: {
           boxWidth: 20
         }
-      },
-      title: {
-        display: true,
-        text: 'Leading jockey',
-      },
+      }
     },
   };
   function dateTrim(date: string) {
