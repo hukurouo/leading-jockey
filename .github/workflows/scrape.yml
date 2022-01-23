@@ -32,7 +32,9 @@ jobs:
           ruby total.rb
         working-directory: ${{ github.workspace }}/crawler
       - name: copy file
-        run: cp -r result ../front/utils
+        run: |
+          cp -r result/dairy ../front/utils
+          cp -r result/total ../front/utils
         working-directory: ${{ github.workspace }}/crawler
       - name: git setting
         run: |
