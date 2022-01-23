@@ -103,6 +103,6 @@ hash = scrape(date)
 arr = arrange_data(hash)
 arr = arr.sort_by{|x|x[:win_cnt]*-1}
 file_name = date.to_s
-File.open("#{file_name}.json","w") {|file| 
+File.open("result/daily/#{file_name}.json","w") {|file| 
   file.puts(JSON.generate(arr))
 }
