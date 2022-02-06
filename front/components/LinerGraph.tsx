@@ -103,7 +103,7 @@ export function LinerGraph({ data }: { data: any }) {
       <Text pb="4">騎手リーディング 1~8位</Text>
       <Line options={options} data={genGraphData(data,0,8)} height={"220"} />
       <Text pt="8" pb="4">騎手リーディング 9~16位</Text>
-      <Line options={options} data={genGraphData(data,9,17)} height={"220"} />
+      <Line options={options} data={genGraphData(data,8,16)} height={"220"} />
     </>
   )
 }
