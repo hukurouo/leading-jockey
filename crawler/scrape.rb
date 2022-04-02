@@ -40,12 +40,13 @@ def scrape(date)
   hash = {}
   race_id_list.each do |id|
     sleep 1
-    page = agent.get("https://race.netkeiba.com/race/result.html?race_id=#{id}&rf=race_list")
+    url = "https://race.netkeiba.com/race/result.html?race_id=#{id}&rf=race_list"
+    page = agent.get(url)
     table = page.xpath('//div[@class="ResultTableWrap"]/table/tbody/tr')
     table.each_with_index do |tr, index|
       rank = tr.css('td')[0].text.strip
       jockey = tr.css('td')[6].text.strip
-      jockey_id = tr.css('td')[6].css('a')[0][:href].split("/")[4]
+      jockey_id = tr.css('td')[6].css('a')[0][:href].split("/")[6]
       odds_rank = tr.css('td')[9].text.strip
       hash[jockey_id]||={name: jockey, result: []}
       hash[jockey_id][:result] << [rank.to_i, odds_rank.to_i]
