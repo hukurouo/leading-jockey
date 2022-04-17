@@ -20,10 +20,13 @@ ChartJS.register(
   Tooltip,
   Legend
 );
+import { getWindowSize } from "../lib/GetWindowSize";
 
 export function LinerGraph({ data }: { data: any }) {
+  const { height, width } = getWindowSize();
   const options = {
     responsive: true,
+    aspectRatio: 2,
     plugins: {
       legend: {
         labels: {
@@ -44,6 +47,8 @@ export function LinerGraph({ data }: { data: any }) {
     'rgba(255, 159, 64, 0.5)',
     'rgba(54, 62, 235, 0.5)',
     'rgba(255, 99, 32, 0.5)',
+    'rgba(155, 99, 32, 0.5)',
+    'rgba(55, 99, 132, 0.5)',
   ]
 
   function genGraphData(data: any, start_idnex: number, end_index: number): {
@@ -87,7 +92,9 @@ export function LinerGraph({ data }: { data: any }) {
           label: name,
           data: win_cnts.reverse(),
           backgroundColor: colors[index],
-          borderColor: colors[index]
+          borderColor: colors[index],
+          pointRadius: 2,
+          tension: 0.1
         }
       )
     })
@@ -100,10 +107,10 @@ export function LinerGraph({ data }: { data: any }) {
 
   return (
     <>
-      <Text pb="4">騎手リーディング 1~8位</Text>
-      <Line options={options} data={genGraphData(data,0,8)} height={"220"} />
-      <Text pt="8" pb="4">騎手リーディング 9~16位</Text>
-      <Line options={options} data={genGraphData(data,8,16)} height={"220"} />
+      <Text pb="4">騎手リーディング 1~10位</Text>
+      <Line options={options} data={genGraphData(data,0,10)} />
+      <Text pt="8" pb="4">騎手リーディング 11~20位</Text>
+      <Line options={options} data={genGraphData(data,10,20)} />
     </>
   )
 }

@@ -7,7 +7,7 @@ type typeLayout = {
 
 export function Layout({ children }: typeLayout) {
   return (
-    <Container maxWidth={880} mb={16}>
+    <Container maxWidth={1020} mb={16}>
       <Nav/>
       <Box py={4}></Box>
       <main>{children}</main>
