@@ -20,10 +20,8 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-import { getWindowSize } from "../lib/GetWindowSize";
 
 export function LinerGraph({ data }: { data: any }) {
-  const { height, width } = getWindowSize();
   const options = {
     responsive: true,
     aspectRatio: 2,
